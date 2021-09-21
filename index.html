@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Proyecto Final</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9 py-2">
+            <div class="row row-cols-1 row-cols-md-3" id="product-div"></div>
+        </div>
+        <div class="col bg-light py-2 ml-3">
+            <div>
+                <h6 class="text-center">Inicie Sesión</h6>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="userName" required placeholder="Nombre Usuario">
+                    <input type="password" class="form-control" id="password" required placeholder="Contraseña">
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm btn-block">Iniciar Sesión</button>
+            </div>
+            <div class="mt-4">
+                <h6 class="text-center">Carro de Compras</h6>
+                <div>
+
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm btn-block">REALIZAR COMPRA</button>
+            </div>
+        </div>
+    </div>
+    <div class="row py-2">
+        <div class="col-md-9"></div>
+        <div class="col ml-3">
+            <div class="bg-white">
+                <div class="form-group mt-2">
+                    <p class="text-left my-0"><small>DATOS PARA DESARROLLO</small></p>
+                    <p class="my-0 text-muted"><small>usuario: user</small></p>
+                    <p class="my-0 text-muted"><small>contraseña: password</small></p>
+                    <button id="reset-default-btn" type="button" class="btn btn-secondary btn-sm btn-block">RESTAURAR PRODUCTOS</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.6/dist/sweetalert2.all.min.js"></script>
+<script src="js/Product.js"></script>
+<script>
+    'use strict'
+
+    const resetDefaultBtn = document.getElementById('reset-default-btn');
+    const product = new Product();
+    console.log(product);
+
+    resetDefaultBtn.addEventListener('click', product.resetDefault);
+
+
+
+</script>
+</body>
+</html>
