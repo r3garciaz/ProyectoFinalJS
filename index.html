@@ -12,6 +12,12 @@
 </head>
 <body>
 <div class="container">
+    <div class="row my-3">
+        <div class="col text-center">
+            <p class="h3 mb-0">Proyecto Final JS</p>
+            <p class="mb-0 text-muted">Reinaldo García Zúñiga</p>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-9 py-2">
             <div class="row row-cols-1 row-cols-md-3" id="product-div"></div>
@@ -27,8 +33,27 @@
             </div>
             <div class="mt-4">
                 <h6 class="text-center">Carro de Compras</h6>
-                <div>
-
+                <div id="shopping-cart-products-div">
+<!--                    <div class="card mb-3 bg-light" style="max-width: 540px;">-->
+<!--                        <div class="row no-gutters">-->
+<!--                            <div class="col-md-4 d-flex align-items-center justify-content-center">-->
+<!--                                <img class="bg-white rounded mx-auto d-block p-2" src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" style="width: 75px; height: 75px" alt="...">-->
+<!--                            </div>-->
+<!--                            <div class="col-md-8">-->
+<!--                                <div class="card-body p-2">-->
+<!--                                    <h6 class="card-title mb-0">Producto</h6>-->
+<!--                                    <p class="card-text m-0 text-muted"><small>1000</small></p>-->
+<!--                                    <p class="card-text m-0 text-muted"><small>2 unidades</small></p>-->
+<!--                                    <p class="card-text m-0 text-muted"><small>Total $ 2000</small></p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+                <div id="shopping-cart-total-div" class="text-right mb-3">
+<!--                    <p class="card-text m-0 text-muted"><small>Total de Productos $2000</small></p>-->
+<!--                    <p class="card-text m-0 text-muted"><small>Envío $1500</small></p>-->
+<!--                    <p class="card-text m-0 text-muted"><small>Total a Pagar $3500</small></p>-->
                 </div>
                 <button id="realizar-compra-btn" type="button" class="btn btn-secondary btn-sm btn-block disabled">REALIZAR COMPRA</button>
             </div>
@@ -60,27 +85,12 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.6/dist/sweetalert2.all.min.js"></script>
 <script src="js/Product.js"></script>
 <script src="js/User.js"></script>
+<script src="js/Cart.js"></script>
+<script src="js/Main.js"></script>
 <script>
     'use strict'
-
     document.addEventListener("DOMContentLoaded", () => {
-        const resetDefaultBtn = document.getElementById('reset-default-btn');
-        const userNameInput = document.getElementById('userName');
-        const passwordInput = document.getElementById('password');
-        const logginBtn = document.getElementById('loggin-btn');
-
-        const product = new Product();
-        const user = new User();
-
-        resetDefaultBtn.addEventListener('click', async () => {
-            await product.resetDefault();
-            // window.location.reload();
-        });
-
-        logginBtn.addEventListener('click', () => {
-            user.doLogin(userNameInput.value, passwordInput.value);
-        });
-
+        Startup();
     });
 
 </script>

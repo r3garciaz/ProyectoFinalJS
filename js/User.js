@@ -10,14 +10,11 @@ class User {
     #realizarCompraBtn = document.getElementById('realizar-compra-btn');
 
     constructor() {
-        console.log(this.#token);
+        // console.log(this.#token);
 
         if(!!User.#instance){
-            console.log('instancia ya creada');
             return User.#instance;
         }
-
-        console.log('creando instancia');
         User.#instance = this;
 
         const userNameP = document.getElementById('user-name-p');
@@ -35,7 +32,7 @@ class User {
         if(this.isLogin()){
             return
         }
-        console.log({userName, password}, this.#token);
+        // console.log({userName, password}, this.#token);
         if (userName === this.#userCredentials.userName && password === this.#userCredentials.password) {
             this.#token = this.#generateGUID();
             window.sessionStorage.setItem('sessionId', this.#token);
