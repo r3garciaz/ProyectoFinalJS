@@ -18,19 +18,19 @@
         </div>
         <div class="col bg-light py-2 ml-3">
             <div>
-                <h6 class="text-center">Inicie Sesión</h6>
+                <h6 id="user-welcome-h6" class="text-center">Inicie Sesión</h6>
                 <div class="form-group">
                     <input type="text" class="form-control" id="userName" required placeholder="Nombre Usuario">
                     <input type="password" class="form-control" id="password" required placeholder="Contraseña">
                 </div>
-                <button type="button" class="btn btn-secondary btn-sm btn-block">Iniciar Sesión</button>
+                <button id="loggin-btn" type="button" class="btn btn-secondary btn-sm btn-block">Iniciar Sesión</button>
             </div>
             <div class="mt-4">
                 <h6 class="text-center">Carro de Compras</h6>
                 <div>
 
                 </div>
-                <button type="button" class="btn btn-secondary btn-sm btn-block">REALIZAR COMPRA</button>
+                <button id="realizar-compra-btn" type="button" class="btn btn-secondary btn-sm btn-block disabled">REALIZAR COMPRA</button>
             </div>
         </div>
     </div>
@@ -40,8 +40,8 @@
             <div class="bg-white">
                 <div class="form-group mt-2">
                     <p class="text-left my-0"><small>DATOS PARA DESARROLLO</small></p>
-                    <p class="my-0 text-muted"><small>usuario: user</small></p>
-                    <p class="my-0 text-muted"><small>contraseña: password</small></p>
+                    <p id="user-name-p" class="my-0 text-muted"></p>
+                    <p id="user-password-p" class="my-0 text-muted"></p>
                     <button id="reset-default-btn" type="button" class="btn btn-secondary btn-sm btn-block">RESTAURAR PRODUCTOS</button>
                 </div>
             </div>
@@ -59,16 +59,29 @@
         crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.6/dist/sweetalert2.all.min.js"></script>
 <script src="js/Product.js"></script>
+<script src="js/User.js"></script>
 <script>
     'use strict'
 
-    const resetDefaultBtn = document.getElementById('reset-default-btn');
-    const product = new Product();
-    console.log(product);
+    document.addEventListener("DOMContentLoaded", () => {
+        const resetDefaultBtn = document.getElementById('reset-default-btn');
+        const userNameInput = document.getElementById('userName');
+        const passwordInput = document.getElementById('password');
+        const logginBtn = document.getElementById('loggin-btn');
 
-    resetDefaultBtn.addEventListener('click', product.resetDefault);
+        const product = new Product();
+        const user = new User();
 
+        resetDefaultBtn.addEventListener('click', async () => {
+            await product.resetDefault();
+            // window.location.reload();
+        });
 
+        logginBtn.addEventListener('click', () => {
+            user.doLogin(userNameInput.value, passwordInput.value);
+        });
+
+    });
 
 </script>
 </body>
